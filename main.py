@@ -6,7 +6,10 @@ import json
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
 
+from ollama_qa import get_process_answer
+
 # E:/class/grad/project/llm_testpath_find/input/app-debug.apk
+# E:/class/grad/project/llm_testpath_find/input/test_step.json
 
 tmp_path = 'tmp/'
 appium_url = 'http://127.0.0.1:4723/wd/hub'
@@ -35,13 +38,20 @@ def testpath_find(apk_path: str, test_path: str):
         test_steps = json.load(json_file)
     print(test_steps)
 
+    step_count = 0
     for step in test_steps:
-        if step['type'] == 'proccess':
+        time.sleep(0.3)
+        driver.save_screenshot(str(f"{tmp_path}/step{step_count}.png"))
+        print(step)
+        print(driver.get_window_size())
+        if step['type'] == 'process':
             # get object on screen
             # try use screen size & image only to get coordinate
-            
+            print('process')
+            get_process_answer(step['description'], str(driver.get_window_size()), f"{tmp_path}/step{step_count}.png")
         if step['type'] == 'assert':
             print('assert')
+        step_count += 1
 
     driver.quit()
 
