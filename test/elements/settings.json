@@ -1,0 +1,51 @@
+{
+    "systemControl": {
+        "x": 0,
+        "y": 1038,
+        "width": 2448,
+        "height": 42
+    },
+    "mainContent": {
+        "x": 0,
+        "y": 126,
+        "width": 2448,
+        "height": 891
+    },
+    "adjustView": {
+        "x": 0,
+        "y": 126,
+        "width": 2448,
+        "height": 50
+    },
+    "buttonResetOK": {
+        "x": 1777,
+        "y": 621,
+        "width": 168,
+        "height": 126
+    },
+    "dialogOK": {
+        "x": 1777,
+        "y": 578,
+        "width": 168,
+        "height": 126
+    },
+    "buttonEncryptOk":{
+        "x": 1777,
+        "y": 705,
+        "width": 168,
+        "height": 126
+    },
+    "buttonSaveOldRecord":{
+        "x": 1752,
+        "y": 584,
+        "width": 193,
+        "height": 126
+    },
+    "buttonReturn": {
+        "x": 0,
+        "y": 0,
+        "width": 147,
+        "height": 126
+    }
+}
+

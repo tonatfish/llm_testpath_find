@@ -1,0 +1,56 @@
+{
+    "textViewBat": {
+        "x": 2185,
+        "y": 70,
+        "width": 105,
+        "height": 51
+    },
+    "imageBattery": {
+        "x": 2090,
+        "y": 48,
+        "width": 95,
+        "height": 95
+    },
+    "tvDateTime": {
+        "x": 922,
+        "y": 53,
+        "width": 604,
+        "height": 85
+    },
+    "surfaceView": {
+        "x": 735,
+        "y": 191,
+        "width": 1671,
+        "height": 705
+    },
+    "buttonPatient":{
+        "x": 58,
+        "y": 284,
+        "width": 619,
+        "height": 126
+    },
+    "buttonArchive":{
+        "x": 58,
+        "y": 410,
+        "width": 619,
+        "height": 126
+    },
+    "buttonSettings":{
+        "x": 58,
+        "y": 536,
+        "width": 619,
+        "height": 126
+    },
+    "buttonTrendView": {
+        "x": 58,
+        "y": 662,
+        "width": 619,
+        "height": 126
+    },
+    "buttonAbout":{
+        "x": 58,
+        "y": 788,
+        "width": 619,
+        "height": 126
+    }
+}

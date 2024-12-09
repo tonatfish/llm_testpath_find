@@ -1,0 +1,32 @@
+{
+    "buttonPolicy": {
+        "x": 1048,
+        "y": 432,
+        "width": 352,
+        "height": 105
+    },
+    "buttonUseTerm": {
+        "x": 1052,
+        "y": 537,
+        "width": 344,
+        "height": 105
+    },
+    "btnMessageOK": {
+        "x": 1777,
+        "y": 819,
+        "width": 168,
+        "height": 126
+    },
+    "textMessage": {
+        "x": 471,
+        "y": 221,
+        "width": 1506,
+        "height": 587
+    },
+    "buttonReturn": {
+        "x": 0,
+        "y": 0,
+        "width": 147,
+        "height": 126
+    }
+}

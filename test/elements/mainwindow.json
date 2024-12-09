@@ -1,0 +1,450 @@
+{
+    "buttonMenu": {
+        "x": 42,
+        "y": 48,
+        "width": 95,
+        "height": 95
+    },
+    "tvAppTitle": {
+        "x": 190,
+        "y": 53,
+        "width": 263,
+        "height": 85
+    },
+    "tvDateTime": {
+        "x": 922,
+        "y": 53,
+        "width": 604,
+        "height": 85
+    },
+    "buttonSilent": {
+        "x": 1848,
+        "y": 48,
+        "width": 95,
+        "height": 95
+    },
+    "buttonAlarm": {
+        "x": 1969,
+        "y": 48,
+        "width": 95,
+        "height": 95
+    },
+    "textViewBat": {
+        "x": 2185,
+        "y": 70,
+        "width": 105,
+        "height": 51
+    },
+    "imageBattery": {
+        "x": 2090,
+        "y": 48,
+        "width": 95,
+        "height": 95
+    },
+    "buttonExit": {
+        "x": 2316,
+        "y": 56,
+        "width": 79,
+        "height": 79
+    },
+    "btnScreenLock": {
+        "x": 2164,
+        "y": 941,
+        "width": 95,
+        "height": 95
+    },
+    "buttonRtInfer": {
+        "x": 1151,
+        "y": 917,
+        "width": 147,
+        "height": 121
+    },
+    "editPatientID": {
+        "x": 842,
+        "y": 531,
+        "width": 840,
+        "height": 136
+    },
+    "confirmPatientID": {
+        "x": 1467,
+        "y": 667,
+        "width": 275,
+        "height": 144
+    },
+    "confirmRecordSetting": {
+        "x": 1617,
+        "y": 745,
+        "width": 275,
+        "height": 144
+    },
+    "confirmRecordStop": {
+        "x": 1173,
+        "y": 584,
+        "width": 275,
+        "height": 144
+    },
+    "surfaceView": {
+        "x": 42,
+        "y": 191,
+        "width": 2385,
+        "height": 705
+    },
+    "controlPanel": {
+        "x": 2295,
+        "y": 200,
+        "width": 65,
+        "height": 686
+    },
+    "controlPanel_return": {
+        "x": 2295,
+        "y": 200,
+        "width": 65,
+        "height": 90
+    },
+    "exitDialog": {
+        "x": 471,
+        "y": 333,
+        "width": 1506,
+        "height": 413
+    },
+    "exitDialogNo": {
+        "x": 1609,
+        "y": 609,
+        "width": 168,
+        "height": 126
+    },
+    "exitDialogYes": {
+        "x": 1777,
+        "y": 609,
+        "width": 168,
+        "height": 126
+    },
+    "lowBattery_confirm": {
+        "x": 1467,
+        "y": 584,
+        "width": 275,
+        "height": 144
+    },
+    "imgRelayBoard": {
+        "x": 1361,
+        "y": 941,
+        "width": 58,
+        "height": 95
+    },
+    "RRsign": {	
+        "x": 2070,
+        "y": 265,
+        "width": 230,
+        "height": 200
+    },
+    "permissionDialog": {
+        "x": 471,
+        "y": 333,
+        "width": 1506,
+        "height": 413
+    },
+    "encryptionDialog": {
+        "x": 471,
+        "y": 139,
+        "width": 1506,
+        "height": 802
+    },
+    "spinnerOutputMode": {
+        "x": 1974,
+        "y": 942,
+        "width": 164,
+        "height": 93
+    },
+    "spinnerOutputMode_spk": {
+        "x": 1974,
+        "y": 663,
+        "width": 164,
+        "height": 93
+    },
+    "spinnerOutputMode_auto": {
+        "x": 1974,
+        "y": 756,
+        "width": 164,
+        "height": 93
+    },
+    "spinnerOutputMode_silent": {
+        "x": 1974,
+        "y": 849,
+        "width": 164,
+        "height": 93
+    },
+    "buttonSoundSetting": {
+        "x": 602,
+        "y": 925,
+        "width": 231,
+        "height": 113
+    },
+    "soundSettingDialog": {
+        "x": 520,
+        "y": 350,
+        "width": 1410,
+        "height": 450
+    },
+    "soundSettingDialog_spinner": {
+        "x": 520,
+        "y": 350,
+        "width": 1410,
+        "height": 450
+    },
+    "soundSettingDialog_spinnerBwe": [
+        {
+            "x": 919,
+            "y": 590,
+            "width": 263,
+            "height": 93
+        },
+        {
+            "x": 832,
+            "y": 569,
+            "width": 263,
+            "height": 93
+        }
+    ],
+    "soundSettingDialog_spinnerBwe_normal": [
+        {
+            "x": 919,
+            "y": 569,
+            "width": 137,
+            "height": 93
+        },
+        {
+            "x": 832,
+            "y": 569,
+            "width": 137,
+            "height": 93
+        }
+    ],
+    "soundSettingDialog_spinnerBwe_shift": [
+        {
+            "x": 919,
+            "y": 662,
+            "width": 137,
+            "height": 93
+        },
+        {
+            "x": 832,
+            "y": 662,
+            "width": 137,
+            "height": 93
+        }
+    ],
+    "soundSettingDialog_buttonDefault": [
+        {
+            "x": 1482,
+            "y": 716,
+            "width": 461,
+            "height": 126
+        },
+        {
+            "x": 1610,
+            "y": 695,
+            "width": 246,
+            "height": 126
+        }
+    ],
+    "soundSettingDialog_buttonConfirm": [
+        {
+            "x": 1213,
+            "y": 716,
+            "width": 269,
+            "height": 126
+        },
+        {
+            "x": 1379,
+            "y": 695,
+            "width": 231,
+            "height": 126
+        }
+    ],
+    "buttonFreeze": {
+        "x": 163,
+        "y": 941,
+        "width": 95,
+        "height": 95
+    },
+    "buttonDisplay": {
+        "x": 42,
+        "y": 941,
+        "width": 95,
+        "height": 95
+    },
+    "spinnerNoiseCancel": [
+        {
+            "x": 392,
+            "y": 942,
+            "width": 157,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 942,
+            "width": 148,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 942,
+            "width": 148,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 942,
+            "width": 222,
+            "height": 93
+        },
+        {
+            "x": 564,
+            "y": 942,
+            "width": 256,
+            "height": 93
+        }
+    ],
+    "spinnerNoiseCancel_normal": [
+        {
+            "x": 392,
+            "y": 756,
+            "width": 157,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 756,
+            "width": 148,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 756,
+            "width": 148,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 756,
+            "width": 222,
+            "height": 93
+        },
+        {
+            "x": 564,
+            "y": 756,
+            "width": 256,
+            "height": 93
+        }
+    ],
+    "spinnerNoiseCancel_newDual": [
+        {
+            "x": 392,
+            "y": 849,
+            "width": 157,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 849,
+            "width": 148,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 849,
+            "width": 148,
+            "height": 93
+        },
+        {
+            "x": 490,
+            "y": 849,
+            "width": 222,
+            "height": 93
+        },
+        {
+            "x": 564,
+            "y": 849,
+            "width": 256,
+            "height": 93
+        }        
+    ],
+    "buttonEvent": {
+        "x": 2285,
+        "y": 941,
+        "width": 95,
+        "height": 95
+    },
+    "buttonRecordSaving": {
+        "x": 1752,
+        "y": 605,
+        "width": 193,
+        "height": 126
+    },
+    "buttonSkipKeyIn": {
+        "x": 1300,
+        "y": 641,
+        "width": 231,
+        "height": 126
+    },
+    "viewRrInfo": {
+        "x": 2070,
+        "y": 233,
+        "width": 273,
+        "height": 168
+    },
+    "offsetTextLine": {
+        "x": 42,
+        "y": 191,
+        "width": 2215,
+        "height": 74
+    },
+    "surfaceView_450hz_1050hz": {
+        "x": 42,
+        "y": 380,
+        "width": 2385,
+        "height": 310
+    },
+    "spinnerChannel": {
+        "x": 1482,
+        "y": 942,
+        "width": 66,
+        "height": 93
+    },
+    "spinnerChannel_ch1": {
+        "x": 1482,
+        "y": 570,
+        "width": 66,
+        "height": 93
+    },
+    "spinnerChannel_ch2": {
+        "x": 1482,
+        "y": 663,
+        "width": 66,
+        "height": 93
+    },
+    "spinnerChannel_ch3": {
+        "x": 1482,
+        "y": 756,
+        "width": 66,
+        "height": 93
+    },
+    "spinnerChannel_ch4": {
+        "x": 1482,
+        "y": 849,
+        "width": 66,
+        "height": 93
+    },
+    "surfaceView_upperBorder": {
+        "x": 140,
+        "y": 180,
+        "width": 2225,
+        "height": 50
+    },
+    "screenRecord_keep": {
+        "x": 1560,
+        "y": 600,
+        "width": 370,
+        "height": 50
+    }
+}

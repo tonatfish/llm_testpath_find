@@ -1,0 +1,11 @@
+FROM openjdk:8-jre
+
+ENV PATH="${PATH}:/allure-commandline/bin"
+
+RUN wget -q -O allure-commandline.zip https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.zip && \
+    unzip allure-commandline.zip && \
+    rm allure-commandline.zip && \
+    mv allure-2.14.0 allure-commandline && \
+    chmod +x allure-commandline/bin/allure
+
+CMD [ "allure" ]

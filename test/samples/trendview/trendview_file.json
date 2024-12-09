@@ -1,0 +1,26 @@
+{
+  "apnea_audio01": {
+      "ai": "airm_20230627_002816_AI.txt",
+      "rr": "airm_20230627_002816_RR.txt",
+      "alarm": "airm_20230627_002816_Alarm.txt",
+      "json": "airm_20230627_002816_1.json"
+  },
+  "RR_04_main01": {
+    "ai": "airm_20230627_002435_AI.txt",
+    "rr": "airm_20230627_002435_RR.txt",
+    "alarm": "airm_20230627_002435_Alarm.txt",
+    "json": "airm_20230627_002435_1.json"
+  },
+  "RR_25_main01": {
+    "ai": "airm_20230627_002549_AI.txt",
+    "rr": "airm_20230627_002549_RR.txt",
+    "alarm": "airm_20230627_002549_Alarm.txt",
+    "json": "airm_20230627_002549_1.json"
+  },
+  "RR_30_main01": {
+    "ai": "airm_20230627_002703_AI.txt",
+    "rr": "airm_20230627_002703_RR.txt",
+    "alarm": "airm_20230627_002703_Alarm.txt",
+    "json": "airm_20230627_002703_1.json"
+  }
+}

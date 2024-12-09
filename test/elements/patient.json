@@ -1,0 +1,200 @@
+{
+    "systemControl":{
+        "x": 0,
+        "y": 1038,
+        "width": 2448,
+        "height": 42
+    },
+    "btnPatientID": {
+        "x": 189,
+        "y": 261,
+        "width": 2217,
+        "height": 196
+    },
+    "patientInputDialog_ok": {
+        "x": 1777,
+        "y": 574,
+        "width": 168,
+        "height": 126
+    },
+    "buttonReturn": {
+        "x": 0,
+        "y": 0,
+        "width": 147,
+        "height": 126
+    },
+    "recyclerView": {
+        "x": 0,
+        "y": 126,
+        "width": 2448,
+        "height": 891
+    },
+    "adjustView": {
+        "x": 0,
+        "y": 126,
+        "width": 2448,
+        "height": 50
+    },
+    "btnDateSet": {
+        "x": 492,
+        "y": 819,
+        "width": 1464,
+        "height": 124
+    },
+    "selectMale": {
+        "x": 471,
+        "y": 388,
+        "width": 1506,
+        "height": 126
+    },
+    "selectFemale": {
+        "x": 471,
+        "y": 514,
+        "width": 1506,
+        "height": 126
+    },
+    "selectVentilation_1": {
+        "x": 550,
+        "y": 315,
+        "width": 656,
+        "height": 84
+    },
+    "selectVentilation_2": {
+        "x": 1206,
+        "y": 315,
+        "width": 656,
+        "height": 84
+    },
+    "selectVentilation_3": {
+        "x": 550,
+        "y": 425,
+        "width": 656,
+        "height": 84
+    },
+    "selectVentilation_4": {
+        "x": 1206,
+        "y": 425,
+        "width": 656,
+        "height": 84
+    },
+    "selectVentilation_5": {
+        "x": 550,
+        "y": 535,
+        "width": 656,
+        "height": 84
+    },
+    "selectVentilation_6": {
+        "x": 1206,
+        "y": 535,
+        "width": 656,
+        "height": 84
+    },
+    "selectVentilation_7": {
+        "x": 550,
+        "y": 638,
+        "width": 204,
+        "height": 84
+    },
+    "selectPrelabel_1": {
+        "x": 550,
+        "y": 375,
+        "width": 656,
+        "height": 84
+    },
+    "selectPrelabel_2": {
+        "x": 1206,
+        "y": 375,
+        "width": 656,
+        "height": 84
+    },
+    "selectPrelabel_3": {
+        "x": 550,
+        "y": 485,
+        "width": 656,
+        "height": 84
+    },
+    "selectPrelabel_4": {
+        "x": 1206,
+        "y": 485,
+        "width": 656,
+        "height": 84
+    },
+    "selectPrelabel_5": {
+        "x": 550,
+        "y": 595,
+        "width": 656,
+        "height": 84
+    },
+    "selectPrelabel_6": {
+        "x": 1206,
+        "y": 595,
+        "width": 656,
+        "height": 84
+    },
+    "selectBodyPosition_1": {
+        "x": 121,
+        "y": 236,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_2": {
+        "x": 1171,
+        "y": 236,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_3": {
+        "x": 121,
+        "y": 333,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_4": {
+        "x": 1171,
+        "y": 333,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_5": {
+        "x": 121,
+        "y": 430,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_6": {
+        "x": 1171,
+        "y": 430,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_7": {
+        "x": 121,
+        "y": 527,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_8": {
+        "x": 1171,
+        "y": 527,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_9": {
+        "x": 121,
+        "y": 624,
+        "width": 1050,
+        "height": 84
+    },
+    "selectBodyPosition_10": {
+        "x": 121,
+        "y": 724,
+        "width": 204,
+        "height": 84
+    },
+    "bodyPositionDialog_ok": {
+        "x": 2146,
+        "y": 827,
+        "width": 202,
+        "height": 126
+    }
+}

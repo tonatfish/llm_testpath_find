@@ -1,0 +1,74 @@
+{
+    "trendDateTime":{
+        "x": 922,
+        "y": 53,
+        "width": 604,
+        "height": 85
+    },
+    "buttonFreeze":{
+        "x": 1151,
+        "y": 875,
+        "width": 147,
+        "height": 147
+    },
+    "buttonClose":{
+        "x": 2175,
+        "y": 897,
+        "width": 231,
+        "height": 126
+    },
+    "buttonbackward":{
+        "x": 957,
+        "y": 863,
+        "width": 168,
+        "height": 168
+    },
+    "buttonforward":{
+        "x": 1324,
+        "y": 863,
+        "width": 168,
+        "height": 168
+    },
+    "timeScaler":{
+        "x": 150,
+        "y": 888,
+        "width": 656,
+        "height": 145
+    },
+    "timeScaler_10":{
+        "x": 760,
+        "y": 888,
+        "width": 10,
+        "height": 145
+    },
+    "timeScaler_30":{
+        "x": 646,
+        "y": 888,
+        "width": 10,
+        "height": 145
+    },
+    "timeScaler_60":{
+        "x": 534,
+        "y": 888,
+        "width": 10,
+        "height": 145
+    },
+    "timeScaler_120":{
+        "x": 422,
+        "y": 888,
+        "width": 10,
+        "height": 145
+    },
+    "timeScaler_360":{
+        "x": 310,
+        "y": 888,
+        "width": 10,
+        "height": 145
+    },
+    "timeScaler_720":{
+        "x": 192,
+        "y": 888,
+        "width": 10,
+        "height": 145
+    }
+}

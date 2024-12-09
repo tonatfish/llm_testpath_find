@@ -1,0 +1,7 @@
+.vscode
+__pycache__
+.pytest_cache
+tmp/*.png
+tmp/*.jpg
+tmp/pull_*
+fortry*
