@@ -41,6 +41,7 @@ def swipe_element_down(driver: WebDriver, element: dict, duration: int = 0):
     swipe_start_y = element["y"] + element["height"] - 1
     swipe_end_y = element["y"] + 1
     driver.swipe(swipe_x, swipe_start_y, swipe_x, swipe_end_y, duration)
+    driver.tap([[swipe_x, swipe_end_y]], 200)
 
 
 def swipe_part_element_down(driver: WebDriver, element: dict, duration: int = 0, part: float = 0):
@@ -48,6 +49,13 @@ def swipe_part_element_down(driver: WebDriver, element: dict, duration: int = 0,
     swipe_start_y = int(element["y"] + element["height"] * part - 1)
     swipe_end_y = element["y"] + 1
     driver.swipe(swipe_x, swipe_start_y, swipe_x, swipe_end_y, duration)
+
+# 3 types of swipe tested:
+# driver.swipe: swipe with inertia, fast response -> it's based on ActionChains
+# ActionChains / w3c_actions: swipe with very little inertia, unable to stop with pause, fast response (1.1 sec)
+# TouchAction: swipe without inertia, slow response (2-3 sec)
+def swipe_with_coordination():
+    print('1')
 
 
 def load_audio(driver: WebDriver, audioName: str, sleep_time: float):

@@ -6,7 +6,8 @@ import json
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
 
-from ollama_qa import get_process_answer
+from openai_qa import get_process_answer, get_process_answer_omniparser, check_picture_result
+from process_operator import operate_process
 
 # E:/class/grad/project/llm_testpath_find/input/app-debug.apk
 # E:/class/grad/project/llm_testpath_find/input/test_step.json
@@ -39,6 +40,7 @@ def testpath_find(apk_path: str, test_path: str):
     print(test_steps)
 
     step_count = 0
+    assert_answer = True
     for step in test_steps:
         time.sleep(0.3)
         driver.save_screenshot(str(f"{tmp_path}/step{step_count}.png"))
@@ -48,11 +50,18 @@ def testpath_find(apk_path: str, test_path: str):
             # get object on screen
             # try use screen size & image only to get coordinate
             print('process')
-            get_process_answer(step['description'], str(driver.get_window_size()), f"{tmp_path}/step{step_count}.png")
+            process_answer, parsed_content_list = get_process_answer_omniparser(step['description'], f"{tmp_path}/step{step_count}.png")
+            operate_process(driver, process_answer, parsed_content_list)
         if step['type'] == 'assert':
             print('assert')
+            assert_result = check_picture_result(step['description'], f"{tmp_path}/step{step_count}.png")
+            if (assert_result < 0.7):
+                assert_answer = False
+                print("assert false")
+                break
         step_count += 1
-
+    
+    print("Final Assert Result:", assert_answer)
     driver.quit()
 
 
@@ -61,8 +70,8 @@ def testpath_find(apk_path: str, test_path: str):
 def main():
     # setup environment & variables
     parser = argparse.ArgumentParser()
-    parser.add_argument("-a", "--apk", help="apk path", dest="apk_path", default="D:/classes/grad/project/llm_testpath_find/input/app-debug.apk")
-    parser.add_argument("-t", "--test", help="test step file", dest="test_path", default="D:/classes/grad/project/llm_testpath_find/input/test_step.json")
+    parser.add_argument("-a", "--apk", help="apk path", dest="apk_path", default="E:/class/grad/project/llm_testpath_find/input/app-debug.apk")
+    parser.add_argument("-t", "--test", help="test step file", dest="test_path", default="E:/class/grad/project/llm_testpath_find/input/test_step.json")
     args = parser.parse_args()
     apk_path = args.apk_path
     test_path = args.test_path
