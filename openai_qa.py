@@ -3,9 +3,11 @@ import json
 import base64
 from openai import OpenAI
 from OmniParser import omniparser
+import os 
 
 # client of OpenAI
-client = OpenAI(api_key="")
+openai_key = os.getenv("OPENAI_KEY")
+client = OpenAI(api_key=openai_key)
 
 # Function to encode the image
 def encode_image(image_path):
