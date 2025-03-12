@@ -5,7 +5,7 @@ import os, shutil
 # load .env for sensitive info
 load_dotenv()
 
-from controller import testpath_find
+from controller import test_process
 
 def main():
     # setup environment & variables
@@ -23,9 +23,14 @@ def main():
     if os.path.exists(tmp_path):
         shutil.rmtree(tmp_path)
     os.mkdir(tmp_path)
+
+    # setup output folder for record
+    output_path = os.getenv("OUTPUT_PATH")
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
     
     print("start process")
-    testpath_find(apk_path, test_path)
+    test_process(apk_path, test_path)
 
 if __name__ == '__main__':
     main()

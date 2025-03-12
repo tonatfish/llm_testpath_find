@@ -8,12 +8,11 @@ example omniparser output:
 '''
 
 # check and operate with suggested action
-def operate_process(driver: WebDriver, process, parsed_content_list):
+def operate_process(driver: WebDriver, process):
     print(process)
     print(process["action"])
-    print(parsed_content_list)
     if process["action"].find("click") != -1:
-        click_operate(driver, parsed_content_list[int(process["label ID"][0])])
+        click_operate(driver, process["to_operate"])
 
 # deal click with position marked by omniparser
 def click_operate(driver: WebDriver, to_operate):

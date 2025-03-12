@@ -5,6 +5,8 @@ from openai import OpenAI
 from OmniParser import omniparser
 import os 
 
+from format_checker import validate_openai_output
+
 # client of OpenAI
 openai_key = os.getenv("OPENAI_KEY")
 client = OpenAI(api_key=openai_key)
@@ -14,6 +16,7 @@ def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')
 
+# ask openai to get process with image directly
 def get_process_answer(description: str, image_path: str): # -> tuple[str, object]:
     message = f"Provided Image is an UI image. To test this ui, we need to perform the action that {description}. What action shall we do? (output template: {{ \"action\": [click / double-click / long press / scroll], \"position\": [x, y] }})"
     base64_image = encode_image(image_path)
@@ -38,7 +41,7 @@ def get_process_answer(description: str, image_path: str): # -> tuple[str, objec
     ans = get_llm_answer(messages)
     print(ans)
 
-allowed_options = ['click', 'edit', 'scroll up', 'scroll down']
+allowed_options = ['click', 'check', 'scroll up', 'scroll down']
 config = {
     'som_model_path': 'OmniParser/weights/icon_detect/best.pt',
     'device': 'gpu',
@@ -53,6 +56,7 @@ config = {
 }
 parser = omniparser.Omniparser(config)
 
+# ask openai to get process with image processed by omniparser
 def get_process_answer_omniparser(task_description: str, image_path: str): # -> tuple[str, object]:
     image, parsed_content_list = parser.parse(image_path)
     print(parsed_content_list)
@@ -98,11 +102,22 @@ def get_process_answer_omniparser(task_description: str, image_path: str): # -> 
         print(output)
         try:
             output_obj = json.loads(output)
+            if not validate_openai_output(output_obj):
+                print('not correct format')
+                err_count += 1
+                continue
             break
         except:
             print('not json')
             err_count += 1
-    return [output_obj, parsed_content_list]
+    output_obj["to_operate"] = parsed_content_list[int(output_obj["label ID"][0])]
+
+    # change format to float
+    output_obj["to_operate"]['shape']['x'] = float(output_obj["to_operate"]['shape']['x'])
+    output_obj["to_operate"]['shape']['y'] = float(output_obj["to_operate"]['shape']['y'])
+    output_obj["to_operate"]['shape']['width'] = float(output_obj["to_operate"]['shape']['width'])
+    output_obj["to_operate"]['shape']['height'] = float(output_obj["to_operate"]['shape']['height'])
+    return output_obj
 
 
 
@@ -138,7 +153,9 @@ def check_picture_result(description: str, image_path: str):
             print("llm response not float")
     
     print(score)
-    return score
+    if (score < 0.7):
+        return False
+    return True
 
 def get_llm_answer(messages):
     completion = client.chat.completions.create(
