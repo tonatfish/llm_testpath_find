@@ -10,7 +10,7 @@ from controller import test_process
 def main():
     # setup environment & variables
     parser = argparse.ArgumentParser()
-    parser.add_argument("-a", "--apk", help="apk path", dest="apk_path", default="E:/class/grad/project/llm_testpath_find/input/app-debug.apk")
+    parser.add_argument("-a", "--apk", help="apk path", dest="apk_path", default="E:/class/grad/project/llm_testpath_find/input/app-debug_1_6_2_b.apk")
     parser.add_argument("-t", "--test", help="test step file", dest="test_path", default="E:/class/grad/project/llm_testpath_find/input")
     args = parser.parse_args()
     apk_path = args.apk_path

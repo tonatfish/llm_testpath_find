@@ -37,13 +37,27 @@ openai_output_schema = {
     "properties": {
         "label ID": {
             "type": "array"
-        },
+        }
+    },
+    "required": [
+        "label ID"
+    ]
+}
+
+action_structure_schema = {
+    "type": "object",
+    "properties": {
         "action": {
+            "type": "string"
+        },
+        "target": {
+            "type": "string"
+        },
+        "value": {
             "type": "string"
         }
     },
     "required": [
-        "label ID",
         "action"
     ]
 }
@@ -59,6 +73,20 @@ def validate_test_input(input: object):
 def validate_openai_output(input: object):
     try:
         validate(input, openai_output_schema)
+        return True
+    except ValidationError:
+        return False
+
+
+def validate_action_structure(input: object):
+    try:
+        validate(input, action_structure_schema)
+        if input["action"] == "wait":
+            try:
+                input["value"] = float(input["value"])
+            except:
+                print('wait time not float')
+                return False
         return True
     except ValidationError:
         return False

@@ -6,8 +6,10 @@ from appium import webdriver
 from appium.options.android import UiAutomator2Options
 from appium.webdriver.webdriver import WebDriver
 
+from appium.webdriver.common.appiumby import AppiumBy
+from appium.webdriver.webelement import WebElement
 
-from openai_qa import get_process_answer, get_process_answer_omniparser, check_picture_result
+from openai_qa import get_process_answer, get_process_answer_omniparser, check_picture_result, get_structure_process
 from process_operator import operate_process
 from format_checker import validate_test_input
 
@@ -28,6 +30,8 @@ def test_process(apk_path: str, test_path: str):
     for file in os.listdir(test_path):
         if file.endswith(".json"):
             file_to_test.append(file)
+
+    success_count = 0
 
     for file in file_to_test:
         # build appium driver
@@ -54,8 +58,10 @@ def test_process(apk_path: str, test_path: str):
         print(test_object)
         if not validate_test_input(test_object):
             continue
+
+        test_result = True
         if test_object["tag"] == "new":
-            record_steps = run_new_test(driver, test_object)
+            record_steps, test_result = run_new_test(driver, test_object)
 
             # record steps to output
             output_json = {
@@ -66,8 +72,13 @@ def test_process(apk_path: str, test_path: str):
                 json.dump(output_json, output_file)
 
         else:
-            run_record_test(driver, test_object)
+            test_result = run_record_test(driver, test_object)
+        
+        if (test_result):
+            success_count += 1
         driver.quit()
+    
+    print("Total success rate:", success_count, "/", len(file_to_test))
 
 
 # run new test and make record
@@ -83,16 +94,17 @@ def run_new_test(driver: WebDriver, test_object):
         print(step)
         print(driver.get_window_size())
         if step['type'] == 'process':
-            # get object on screen
-            # try use screen size & image only to get coordinate
+            # 2-step process:
+            # get structured process first and ask openai which target to process
             print('process')
-            process_answer = get_process_answer_omniparser(
-                step['description'], f"{tmp_path}/step{step_count}.png")
-            operate_process(driver, process_answer)
+            process_answer = get_structure_process(step['description'])
             # merge input to record
             process_answer.update(step)
+            if not process_answer['action'] == 'wait':
+                process_answer = get_process_answer_omniparser(process_answer, f"{tmp_path}/step{step_count}.png")
+            operate_process(driver, process_answer)
             record_steps.append(process_answer)
-        if step['type'] == 'assert':
+        elif step['type'] == 'assert':
             record_steps.append(step)
             print('assert')
             assert_result = check_picture_result(
@@ -100,11 +112,31 @@ def run_new_test(driver: WebDriver, test_object):
             assert_answer = assert_answer and assert_result
             if not assert_result:
                 print("assert false")
-                break
+                # break
+        elif step['type'] == 'special':
+            # jump input process of test app
+            encryption_key = "Abcd1234!"
+            element: WebElement = driver.find_element(AppiumBy.ID,
+                                                                  "tw.heroicfaith.fa3:id/dialog_input")
+            element.clear()
+            element.send_keys(encryption_key)
+            element: WebElement = driver.find_element(AppiumBy.ID,
+                                                                    "android:id/button1")
+            element.click()
+            time.sleep(0.5)
+
+            element: WebElement = driver.find_element(AppiumBy.ID,
+                                                                    "tw.heroicfaith.fa3:id/dialog_input")
+            element.clear()
+            element.send_keys(encryption_key)
+            element: WebElement = driver.find_element(AppiumBy.ID,
+                                                                    "android:id/button1")
+            element.click()
+            time.sleep(1)
         step_count += 1
 
-    print("Final Assert Result:", assert_answer)
-    return record_steps
+    print("Assert Result:", assert_answer)
+    return record_steps, assert_answer
 
 # directly operate recorded test
 def run_record_test(driver: WebDriver, test_object):
@@ -130,4 +162,5 @@ def run_record_test(driver: WebDriver, test_object):
                 break
         step_count += 1
 
-    print("Final Assert Result:", assert_answer)
+    print("Assert Result:", assert_answer)
+    return assert_answer

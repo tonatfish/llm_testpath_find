@@ -3,15 +3,47 @@
   "steps":[
     {
       "type": "process",
-      "description": "click red light button"
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "special",
+      "description": "enter words"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click about software button"
     },
     {
       "type": "assert",
-      "description": "check red light appear on screen"
+      "description": "check airmod company icon"
+    },
+    {
+      "type": "process",
+      "description": "click private policy"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to how we store information section"
     },
     {
       "type": "assert",
-      "description": "check no green light appear on screen"
+      "description": "check how we store information"
+    },
+    {
+      "type": "process",
+      "description": "scroll up to updated date"
+    },
+    {
+      "type": "assert",
+      "description": "check update date is november 7th, 2019"
+    },
+    {
+      "type": "assert",
+      "description": "check update date is november 7th, 2017"
     }
   ]
 }
