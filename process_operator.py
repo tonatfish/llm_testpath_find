@@ -32,13 +32,13 @@ def operate_process(driver: WebDriver, process):
         scroll_down_operate(driver, process)
     elif process["action"].find("edit") != -1:
         # TODO:T find a way to edit target
-        click_operate(driver, process["to_operate"])
+        edit_operate(driver, process["to_operate"], process["value"])
     elif process["action"].find("wait") != -1:
         time.sleep(float(process["value"]))
 
 # deal click with position marked by omniparser
 def click_operate(driver: WebDriver, to_operate):
-    print(to_operate)
+    # print(to_operate)
     # find center point to click
     x = to_operate['shape']['x'] + to_operate['shape']['width'] / 2
     y = to_operate['shape']['y'] + to_operate['shape']['height'] / 2
@@ -48,7 +48,7 @@ def click_operate(driver: WebDriver, to_operate):
 
 # deal long click with position marked by omniparser
 def long_click_operate(driver: WebDriver, to_operate):
-    print(to_operate)
+    # print(to_operate)
     # find center point to click
     x = to_operate['shape']['x'] + to_operate['shape']['width'] / 2
     y = to_operate['shape']['y'] + to_operate['shape']['height'] / 2
@@ -124,3 +124,10 @@ def scroll_down_operate(driver: WebDriver, to_operate):
         if (check_picture_result(to_operate["value"], screenshot)):
             break
 
+# deal edit with screen provided to input value
+def edit_operate(driver: WebDriver, to_operate, value):
+    # click first to focus on element
+    click_operate(driver, to_operate)
+    actions = ActionChains(driver)
+    actions.send_keys(value)
+    actions.perform()
