@@ -9,7 +9,8 @@ from appium.webdriver.webdriver import WebDriver
 from appium.webdriver.common.appiumby import AppiumBy
 from appium.webdriver.webelement import WebElement
 
-from openai_qa import get_process_answer, get_process_answer_omniparser, check_picture_result, get_structure_process
+from openai_qa import get_process_answer, get_process_answer_view_hierarchy, check_picture_result, get_structure_process
+# from openai_qa import get_process_answer_omniparser
 from process_operator import operate_process
 from format_checker import validate_test_input
 
@@ -93,6 +94,7 @@ def run_new_test(driver: WebDriver, test_object):
         driver.save_screenshot(str(f"{tmp_path}/step{step_count}.png"))
         print(step)
         print(driver.get_window_size())
+        
         if step['type'] == 'process':
             # 2-step process:
             # get structured process first and ask openai which target to process
@@ -101,7 +103,8 @@ def run_new_test(driver: WebDriver, test_object):
             # merge input to record
             process_answer.update(step)
             if not process_answer['action'] == 'wait':
-                process_answer = get_process_answer_omniparser(process_answer, f"{tmp_path}/step{step_count}.png")
+                # process_answer = get_process_answer_omniparser(process_answer, f"{tmp_path}/step{step_count}.png")
+                process_answer = get_process_answer_view_hierarchy(process_answer, f"{tmp_path}/step{step_count}.png", driver)
             operate_process(driver, process_answer)
             record_steps.append(process_answer)
         elif step['type'] == 'assert':

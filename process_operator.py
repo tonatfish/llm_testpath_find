@@ -37,10 +37,10 @@ def operate_process(driver: WebDriver, process):
         time.sleep(float(process["value"]))
 
 # deal click with position marked by omniparser
-def click_operate(driver: WebDriver, to_operate):
+def click_operate(driver: WebDriver, to_operate, click_rate: float = 0.5):
     # print(to_operate)
     # find center point to click
-    x = to_operate['shape']['x'] + to_operate['shape']['width'] / 2
+    x = to_operate['shape']['x'] + to_operate['shape']['width'] * click_rate
     y = to_operate['shape']['y'] + to_operate['shape']['height'] / 2
     
     driver.tap([(x, y)], None)
@@ -124,10 +124,14 @@ def scroll_down_operate(driver: WebDriver, to_operate):
         if (check_picture_result(to_operate["value"], screenshot)):
             break
 
+
+from selenium.webdriver.common.keys import Keys
 # deal edit with screen provided to input value
 def edit_operate(driver: WebDriver, to_operate, value):
     # click first to focus on element
-    click_operate(driver, to_operate)
+    click_operate(driver, to_operate, 0.9)
     actions = ActionChains(driver)
+    for i in range(10):
+        actions.send_keys(Keys.BACKSPACE)
     actions.send_keys(value)
     actions.perform()
