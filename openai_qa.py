@@ -130,7 +130,10 @@ config = {
 from appium.webdriver.webdriver import WebDriver
 # ask openai to get process with image processed by view hierarchy
 def get_process_answer_view_hierarchy(task_structure: str, image_path: str, driver: WebDriver): # -> tuple[str, object]:
-    parsed_content_list = get_page_info(driver, image_path)
+    info_mode = 0
+    if task_structure["action"].find('scroll') != -1:
+        info_mode = 1
+    parsed_content_list = get_page_info(driver, image_path, info_mode)
     # image, parsed_content_list = parser.parse(image_path)
     # print(parsed_content_list)
     # image.save(image_path)

@@ -90,7 +90,7 @@ def run_new_test(driver: WebDriver, test_object):
     assert_answer = True
     record_steps = []
     for step in test_object["steps"]:
-        time.sleep(0.3)
+        time.sleep(0.5)
         driver.save_screenshot(str(f"{tmp_path}/step{step_count}.png"))
         print(step)
         print(driver.get_window_size())

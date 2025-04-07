@@ -80,16 +80,16 @@ def scroll_operate(driver: WebDriver, x, start_y, end_y):
 
 
 # deal scroll up with screen provided to find value in screen
-def scroll_up_operate(driver: WebDriver, to_operate):
+def scroll_up_operate(driver: WebDriver, process):
     # TODO:T get well-specified answer from chatgpt to avoid adjust of not exist property
-    if not 'value' in to_operate:
-        to_operate['value'] = to_operate['target']
+    if not 'value' in process:
+        process['value'] = process['target']
     # test with screen size first
     # TODO:T get some target section instead of window
     screen_size = driver.get_window_size()
-    x = screen_size["width"] / 2
-    start_y = screen_size["height"] * 1 / 4
-    end_y = screen_size["height"] * 3 / 4
+    x = process['to_operate']['shape']['x'] + process['to_operate']['shape']['width'] / 2
+    start_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.1
+    end_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.9
 
     # avoid inifinite scroll
     scroll_count = 0
@@ -98,21 +98,21 @@ def scroll_up_operate(driver: WebDriver, to_operate):
         time.sleep(0.2)
         screenshot = str(f"{tmp_path}/scroll_check{scroll_count}.png")
         driver.save_screenshot(screenshot)
-        if (check_picture_result(to_operate["value"], screenshot)):
+        if (check_picture_result(process["value"], screenshot)):
             break
 
 
 # deal scroll down with screen provided to find value in screen
-def scroll_down_operate(driver: WebDriver, to_operate):
+def scroll_down_operate(driver: WebDriver, process):
     # TODO:T get well-specified answer from chatgpt to avoid adjust of not exist property
-    if not 'value' in to_operate:
-        to_operate['value'] = to_operate['target']
+    if not 'value' in process:
+        process['value'] = process['target']
     # test with screen size first
     # TODO:T get some target section instead of window
     screen_size = driver.get_window_size()
     x = screen_size["width"] / 2
-    start_y = screen_size["height"] * 3 / 4
-    end_y = screen_size["height"] * 1 / 4
+    start_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.9
+    end_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.1
 
     # avoid inifinite scroll
     scroll_count = 0
@@ -121,7 +121,7 @@ def scroll_down_operate(driver: WebDriver, to_operate):
         time.sleep(0.2)
         screenshot = str(f"{tmp_path}/scroll_check{scroll_count}.png")
         driver.save_screenshot(screenshot)
-        if (check_picture_result(to_operate["value"], screenshot)):
+        if (check_picture_result(process["value"], screenshot)):
             break
 
 
@@ -131,7 +131,7 @@ def edit_operate(driver: WebDriver, to_operate, value):
     # click first to focus on element
     click_operate(driver, to_operate, 0.9)
     actions = ActionChains(driver)
-    for i in range(10):
+    for i in range(len(to_operate['text'][0])):
         actions.send_keys(Keys.BACKSPACE)
     actions.send_keys(value)
     actions.perform()
