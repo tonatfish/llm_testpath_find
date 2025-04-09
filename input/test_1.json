@@ -6,8 +6,24 @@
       "description": "click no button of permission dialog"
     },
     {
-      "type": "special",
-      "description": "enter words"
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
     },
     {
       "type": "process",
@@ -27,11 +43,11 @@
     },
     {
       "type": "process",
-      "description": "scroll down to how we store information section"
+      "description": "scroll down to cookie section"
     },
     {
       "type": "assert",
-      "description": "check how we store information"
+      "description": "check cookie section"
     },
     {
       "type": "process",
