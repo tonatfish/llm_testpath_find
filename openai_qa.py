@@ -268,6 +268,8 @@ def get_structure_process(task_description: str):
             err_count += 1
     return output_obj
 
+
+# Get true / false answer from description and screenshot image to see if description matches screenshot
 def check_picture_result(description: str, image_path: str):
     # message = f"We want to assert the ui provided as image. The image should contain: {description}. Provide us only a similarity_score between 0 to 1. Please only output a floating-point number between 0 and 1 (for example: 0.53)."
     message = f"We want to assert the ui provided as image. The image should contain: {description}. Provide us only a similarity_score, 1 for image contain what it should contain and 0 for no. Please only output a number which is either 0 or 1 (for example: 0)."
@@ -300,7 +302,7 @@ def check_picture_result(description: str, image_path: str):
             err_count += 1
             print("llm response not float")
     
-    print(score)
+    # print(score)
     if (score < 0.7):
         return False
     return True
@@ -313,5 +315,5 @@ def get_llm_answer(messages):
     return completion.choices[0].message.content
 
 if __name__ == "__main__":
-    get_process_answer_omniparser("click green light button", "E:/class/grad/project/llm_testpath_find/tmp/step0.png")
-    # check_picture_result("version tag 1.4.2f", "about_language1.png")
+    # get_process_answer_omniparser("click green light button", "E:/class/grad/project/llm_testpath_find/tmp/step0.png")
+    check_picture_result("version tag 1.4.2f", "about_language1.png")

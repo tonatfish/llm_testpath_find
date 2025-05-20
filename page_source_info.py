@@ -147,7 +147,7 @@ def get_page_info(driver: WebDriver, path: str, mode: int = 0):
 
     # 取得 view hierarchy
     view_hierarchy = driver.page_source
-    # print(view_hierarchy)
+    print(view_hierarchy)
 
     # 解析 XML
     root = ET.fromstring(view_hierarchy)
