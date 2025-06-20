@@ -1,0 +1,57 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click lock icon button"
+    },
+    {
+      "type": "assert",
+      "description": "check if lock icon is locked"
+    },
+    {
+      "type": "process",
+      "description": "click power icon button"
+    },
+    {
+      "type": "assert",
+      "description": "check if exit dialog not show"
+    },
+    {
+      "type": "process",
+      "description": "click lock icon button"
+    },
+    {
+      "type": "assert",
+      "description": "check if lock icon is unlocked"
+    },
+    {
+      "type": "process",
+      "description": "click power icon button"
+    },
+    {
+      "type": "assert",
+      "description": "check if exit dialog shows"
+    }
+  ]
+}

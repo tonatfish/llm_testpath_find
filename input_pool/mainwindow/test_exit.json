@@ -1,0 +1,53 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a password dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "assert",
+      "description": "check if we are in airmod app"
+    },
+    {
+      "type": "process",
+      "description": "click power icon"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a exit dialog"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a yes no option"
+    },
+    {
+      "type": "process",
+      "description": "click yes button"
+    },
+    {
+      "type": "assert",
+      "description": "check if we left airmod app"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click about software button"
+    },
+    {
+      "type": "process",
+      "description": "click terms of use button"
+    },
+    {
+      "type": "assert",
+      "description": "check if terms of use dialog is opened"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to invalidity section"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's an invalidity section"
+    },
+    {
+      "type": "process",
+      "description": "scroll up to 智慧財產權 section"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's an 智慧財產權 section"
+    },
+    {
+      "type": "process",
+      "description": "click terms of use button"
+    },
+    {
+      "type": "assert",
+      "description": "check if terms of use dialog is closed"
+    }
+  ]
+}

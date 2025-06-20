@@ -1,0 +1,73 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click settings button"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to language setting"
+    },
+    {
+      "type": "process",
+      "description": "click language setting button"
+    },
+    {
+      "type": "process",
+      "description": "click english button"
+    },
+    {
+      "type": "process",
+      "description": "click no button of dialog"
+    },
+    {
+      "type": "process",
+      "description": "click freeze icon button"
+    },
+    {
+      "type": "assert",
+      "description": "check if freeze icon turns yellow"
+    },
+    {
+      "type": "assert",
+      "description": "check if arrows show on left and right part of monitor"
+    },
+    {
+      "type": "process",
+      "description": "click freeze icon button"
+    },
+    {
+      "type": "assert",
+      "description": "check if arrows not show on left and right part of monitor"
+    },
+    {
+      "type": "assert",
+      "description": "check if freeze icon turns green"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click about software button"
+    },
+    {
+      "type": "assert",
+      "description": "check airmod company icon"
+    },
+    {
+      "type": "assert",
+      "description": "check version tag 1.6.2b"
+    }
+  ]
+}

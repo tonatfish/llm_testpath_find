@@ -1,0 +1,101 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click patient info button"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to 身高 button"
+    },
+    {
+      "type": "process",
+      "description": "click height button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"200\" to the height input section"
+    },
+    {
+      "type": "process",
+      "description": "click yes button"
+    },
+    {
+      "type": "assert",
+      "description": "check 200 shows under height button"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to 體重 button"
+    },
+    {
+      "type": "process",
+      "description": "click weight button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"80\" to the weight input section"
+    },
+    {
+      "type": "process",
+      "description": "click yes button"
+    },
+    {
+      "type": "assert",
+      "description": "check 80 shows under weight button"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to 身體質量指數 button"
+    },
+    {
+      "type": "assert",
+      "description": "check 20.0 shows under 身體質量指數 button"
+    },
+    {
+      "type": "process",
+      "description": "click BMI button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"15.0\" to the BMI input section"
+    },
+    {
+      "type": "process",
+      "description": "click yes button"
+    },
+    {
+      "type": "assert",
+      "description": "check 15.0 shows under BMI button"
+    },
+    {
+      "type": "assert",
+      "description": "check height button and weight button has red text color"
+    }
+  ]
+}

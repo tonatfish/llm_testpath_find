@@ -1,0 +1,57 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click power icon"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a exit dialog"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a yes no option"
+    },
+    {
+      "type": "process",
+      "description": "click no button"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a battery icon"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a battery level info"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a drawer shown with list of options"
+    }
+  ]
+}

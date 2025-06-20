@@ -1,0 +1,69 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click about software button"
+    },
+    {
+      "type": "process",
+      "description": "click private policy button"
+    },
+    {
+      "type": "assert",
+      "description": "check if private policy dialog is opened"
+    },
+    {
+      "type": "assert",
+      "description": "check there's an update of private policy"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to 免責聲明 section"
+    },
+    {
+      "type": "assert",
+      "description": "check there's an 免責聲明 section"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to how we process data section"
+    },
+    {
+      "type": "assert",
+      "description": "check there's an how we process data section"
+    },
+    {
+      "type": "process",
+      "description": "click yes button"
+    },
+    {
+      "type": "assert",
+      "description": "check if private policy dialog is closed"
+    }
+  ]
+}

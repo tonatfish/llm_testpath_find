@@ -1,0 +1,49 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click card icon button"
+    },
+    {
+      "type": "assert",
+      "description": "check if record event dialog shows"
+    },
+    {
+      "type": "process",
+      "description": "click 完全呼吸道阻塞 button"
+    },
+    {
+      "type": "assert",
+      "description": "check if 完全呼吸道阻塞 is selected"
+    },
+    {
+      "type": "process",
+      "description": "click leave button"
+    },
+    {
+      "type": "assert",
+      "description": "check if record event dialog closed"
+    }
+  ]
+}

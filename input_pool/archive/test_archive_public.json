@@ -1,0 +1,53 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click archive view button"
+    },
+    {
+      "type": "assert",
+      "description": "check archive option dialog exists"
+    },
+    {
+      "type": "process",
+      "description": "click archive view button"
+    },
+    {
+      "type": "assert",
+      "description": "check archive folder option dialog exists"
+    },
+    {
+      "type": "process",
+      "description": "click externel folder view button"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a folder list"
+    }
+  ]
+}

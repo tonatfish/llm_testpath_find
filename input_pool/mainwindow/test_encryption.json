@@ -1,0 +1,41 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a password input dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"7689Efgh?\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a password error dialog"
+    },
+    {
+      "type": "process",
+      "description": "click yes button"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a password input dialog"
+    }
+  ]
+}
