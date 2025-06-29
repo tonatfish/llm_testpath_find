@@ -1,0 +1,21 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click green light button"
+    },
+    {
+      "type": "assert",
+      "description": "check green light appear on screen"
+    },
+    {
+      "type": "assert",
+      "description": "check no red light appear on screen"
+    },
+    {
+      "type": "assert",
+      "description": "check red light appear on screen"
+    }
+  ]
+}

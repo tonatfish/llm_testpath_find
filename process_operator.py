@@ -65,18 +65,39 @@ def long_click_operate(driver: WebDriver, to_operate):
 
 
 # deal scroll with certain coordinate
-def scroll_operate(driver: WebDriver, x, start_y, end_y):
-    # swipe with little inertia (1.1sec):
-    touch_input = PointerInput(interaction.POINTER_TOUCH, "touch")
-    actions = ActionChains(driver)
-    actions.w3c_actions = ActionBuilder(driver, mouse=touch_input)
-    actions.w3c_actions.pointer_action.move_to_location(x, start_y)
-    actions.w3c_actions.pointer_action.pointer_down()
-    actions.w3c_actions = ActionBuilder(driver, mouse=touch_input, duration=200)
-    actions.w3c_actions.pointer_action.move_to_location(x, end_y)
-    actions.w3c_actions.pointer_action.release()
-    actions.w3c_actions.pointer_action.click_and_hold()
-    actions.perform()
+# def scroll_operate(driver: WebDriver, x, start_y, end_y):
+#     # swipe with little inertia (1.1sec):
+#     touch_input = PointerInput(interaction.POINTER_TOUCH, "touch")
+#     actions = ActionChains(driver)
+#     actions.w3c_actions = ActionBuilder(driver, mouse=touch_input)
+#     actions.w3c_actions.pointer_action.move_to_location(x, start_y)
+#     actions.w3c_actions.pointer_action.pointer_down()
+#     actions.w3c_actions.pointer_action.pause(0.2)
+#     actions.w3c_actions = ActionBuilder(driver, mouse=touch_input, duration=250)
+#     actions.w3c_actions.pointer_action.move_to_location(x, end_y)
+#     actions.w3c_actions.pointer_action.pause(0.2)
+#     actions.w3c_actions.pointer_action.pointer_up()
+#     actions.perform()
+
+# deal scroll with certain coordinate
+def scroll_operate(driver: WebDriver, x, start_y, end_y, steps=4):
+    delta_y = (end_y - start_y) / steps
+    current_y = start_y
+
+    for i in range(steps):
+        next_y = current_y + delta_y
+        touch_input = PointerInput(interaction.POINTER_TOUCH, "touch")
+        actions = ActionChains(driver)
+        actions.w3c_actions = ActionBuilder(driver, mouse=touch_input)
+        actions.w3c_actions.pointer_action.move_to_location(x, int(current_y))
+        actions.w3c_actions.pointer_action.pointer_down()
+        actions.w3c_actions.pointer_action.pause(0.1)
+        actions.w3c_actions.pointer_action.move_to_location(x, int(next_y))
+        actions.w3c_actions.pointer_action.pause(0.1)
+        actions.w3c_actions.pointer_action.pointer_up()
+        actions.perform()
+
+        current_y = next_y
 
 
 # deal scroll up with screen provided to find value in screen
@@ -88,18 +109,19 @@ def scroll_up_operate(driver: WebDriver, process):
     # TODO:T get some target section instead of window
     screen_size = driver.get_window_size()
     x = process['to_operate']['shape']['x'] + process['to_operate']['shape']['width'] / 2
-    start_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.1
+    start_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.2
     end_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.9
 
     # avoid inifinite scroll
     scroll_count = 0
-    while (scroll_count < 10):
-        scroll_operate(driver, x, start_y, end_y)
+    while (scroll_count < 17):
         time.sleep(0.2)
         screenshot = str(f"{tmp_path}/scroll_check{scroll_count}.png")
         driver.save_screenshot(screenshot)
         if (check_picture_result(process["value"], screenshot)):
             break
+        scroll_operate(driver, x, start_y, end_y)
+        scroll_count += 1
 
 
 # deal scroll down with screen provided to find value in screen
@@ -112,17 +134,18 @@ def scroll_down_operate(driver: WebDriver, process):
     screen_size = driver.get_window_size()
     x = screen_size["width"] / 2
     start_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.9
-    end_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.1
+    end_y = process['to_operate']['shape']['y'] + process['to_operate']['shape']['height'] * 0.2
 
     # avoid inifinite scroll
     scroll_count = 0
-    while (scroll_count < 10):
-        scroll_operate(driver, x, start_y, end_y)
+    while (scroll_count < 17):
         time.sleep(0.2)
         screenshot = str(f"{tmp_path}/scroll_check{scroll_count}.png")
         driver.save_screenshot(screenshot)
         if (check_picture_result(process["value"], screenshot)):
             break
+        scroll_operate(driver, x, start_y, end_y)
+        scroll_count += 1
 
 
 from selenium.webdriver.common.keys import Keys
@@ -131,7 +154,8 @@ def edit_operate(driver: WebDriver, to_operate, value):
     # click first to focus on element
     click_operate(driver, to_operate, 0.9)
     actions = ActionChains(driver)
-    for i in range(len(to_operate['text'][0])):
-        actions.send_keys(Keys.BACKSPACE)
+    if len(to_operate['text']) > 0:
+        for i in range(len(to_operate['text'][0])):
+            actions.send_keys(Keys.BACKSPACE)
     actions.send_keys(value)
     actions.perform()

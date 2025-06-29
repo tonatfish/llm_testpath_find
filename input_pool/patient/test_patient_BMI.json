@@ -71,15 +71,15 @@
     },
     {
       "type": "process",
-      "description": "scroll down to 身體質量指數 button"
+      "description": "scroll down to 身體質量指數"
     },
     {
       "type": "assert",
-      "description": "check 20.0 shows under 身體質量指數 button"
+      "description": "check 20.0 shows under 身體質量指數"
     },
     {
       "type": "process",
-      "description": "click BMI button"
+      "description": "click 身體質量指數 button"
     },
     {
       "type": "process",

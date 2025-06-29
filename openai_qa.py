@@ -90,6 +90,8 @@ config = {
 
 #     # try to get json object from GPT string feedback
 #     err_count = 0
+#     err_counts = [0, 0, 0, 0, 0] # record 4 types of error: no ''' label, no ``` label, no correct json, not a json, index out of range
+#     err_msgs = []
 #     output_obj = {}
 #     while (err_count < 5):
 #         ans = get_llm_answer(messages)
@@ -97,11 +99,14 @@ config = {
 #         positions = [match.start() for match in re.finditer("‘‘‘", ans)]
 #         if len(positions) != 2:
 #             print('‘‘‘ label not found')
+#             err_counts[0] += 1
 #             # according to test result, sometimes ‘‘‘ will be replaced by ```
 #             positions_alter = [match.start() for match in re.finditer("```", ans)]
 #             if len(positions_alter) != 2:
 #                 print('``` label not found')
+#                 err_counts[1] += 1
 #                 err_count += 1
+#                 err_msgs.append(ans)
 #                 continue
 #             positions = positions_alter
 #         output = ans[positions[0] + 3: positions[1]]
@@ -110,12 +115,25 @@ config = {
 #             output_obj = json.loads(output)
 #             if not validate_openai_output(output_obj):
 #                 print('not correct format')
+#                 err_counts[2] += 1
 #                 err_count += 1
+#                 err_msgs.append(ans)
 #                 continue
-#             break
 #         except:
 #             print('not json')
+#             err_counts[3] += 1
 #             err_count += 1
+#             continue
+
+#         # check if it's a correct index
+#         if int(output_obj["label ID"][0]) >= len(parsed_content_list):
+#             print('index out of range')
+#             err_counts[4] += 1
+#             err_count += 1
+#             err_msgs.append(ans)
+#         else:
+#             break
+        
 #     output_obj["to_operate"] = parsed_content_list[int(output_obj["label ID"][0])]
 
 #     # change format to float
@@ -124,6 +142,9 @@ config = {
 #     output_obj["to_operate"]['shape']['width'] = float(output_obj["to_operate"]['shape']['width'])
 #     output_obj["to_operate"]['shape']['height'] = float(output_obj["to_operate"]['shape']['height'])
 #     task_structure.update(output_obj)
+#     task_structure["process_err_count"] = err_count
+#     task_structure["process_err_counts"] = err_counts
+#     task_structure["process_err_msgs"] = err_msgs
 #     return task_structure
 
 
@@ -165,6 +186,8 @@ def get_process_answer_view_hierarchy(task_structure: str, image_path: str, driv
 
     # try to get json object from GPT string feedback
     err_count = 0
+    err_counts = [0, 0, 0, 0, 0] # record 4 types of error: no ''' label, no ``` label, no correct json, not a json, index out of range
+    err_msgs = []
     output_obj = {}
     while (err_count < 5):
         ans = get_llm_answer(messages)
@@ -172,11 +195,14 @@ def get_process_answer_view_hierarchy(task_structure: str, image_path: str, driv
         positions = [match.start() for match in re.finditer("‘‘‘", ans)]
         if len(positions) != 2:
             print('‘‘‘ label not found')
+            err_counts[0] += 1
             # according to test result, sometimes ‘‘‘ will be replaced by ```
             positions_alter = [match.start() for match in re.finditer("```", ans)]
             if len(positions_alter) != 2:
                 print('``` label not found')
+                err_counts[1] += 1
                 err_count += 1
+                err_msgs.append(ans)
                 continue
             positions = positions_alter
         output = ans[positions[0] + 3: positions[1]]
@@ -185,16 +211,22 @@ def get_process_answer_view_hierarchy(task_structure: str, image_path: str, driv
             output_obj = json.loads(output)
             if not validate_openai_output(output_obj):
                 print('not correct format')
+                err_counts[2] += 1
                 err_count += 1
+                err_msgs.append(ans)
                 continue
         except:
             print('not json')
+            err_counts[3] += 1
             err_count += 1
+            continue
 
         # check if it's a correct index
         if int(output_obj["label ID"][0]) >= len(parsed_content_list):
             print('index out of range')
+            err_counts[4] += 1
             err_count += 1
+            err_msgs.append(ans)
         else:
             break
         
@@ -206,6 +238,9 @@ def get_process_answer_view_hierarchy(task_structure: str, image_path: str, driv
     output_obj["to_operate"]['shape']['width'] = float(output_obj["to_operate"]['shape']['width'])
     output_obj["to_operate"]['shape']['height'] = float(output_obj["to_operate"]['shape']['height'])
     task_structure.update(output_obj)
+    task_structure["process_err_count"] = err_count
+    task_structure["process_err_counts"] = err_counts
+    task_structure["process_err_msgs"] = err_msgs
     return task_structure
 
 
@@ -240,6 +275,8 @@ def get_structure_process(task_description: str):
 
     # try to get json object from GPT string feedback
     err_count = 0
+    err_counts = [0, 0, 0, 0] # record 4 types of error: no ''' label, no ``` label, no correct json, not a json
+    err_msgs = []
     output_obj = {}
     while (err_count < 5):
         ans = get_llm_answer(messages)
@@ -247,11 +284,14 @@ def get_structure_process(task_description: str):
         positions = [match.start() for match in re.finditer("‘‘‘", ans)]
         if len(positions) != 2:
             print('‘‘‘ label not found')
+            err_counts[0] += 1
             # according to test result, sometimes ‘‘‘ will be replaced by ```
             positions_alter = [match.start() for match in re.finditer("```", ans)]
             if len(positions_alter) != 2:
                 print('``` label not found')
+                err_counts[1] += 1
                 err_count += 1
+                err_msgs.append(ans)
                 continue
             positions = positions_alter
         output = ans[positions[0] + 3: positions[1]]
@@ -260,12 +300,21 @@ def get_structure_process(task_description: str):
             output_obj = json.loads(output)
             if not validate_action_structure(output_obj):
                 print('not correct format')
+                err_counts[2] += 1
                 err_count += 1
+                err_msgs.append(ans)
                 continue
             break
         except:
             print('not json')
+            err_counts[3] += 1
             err_count += 1
+            err_msgs.append(ans)
+            continue
+    
+    output_obj["struct_err_count"] = err_count
+    output_obj["struct_err_counts"] = err_counts
+    output_obj["struct_err_msgs"] = err_msgs
     return output_obj
 
 

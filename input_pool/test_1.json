@@ -1,0 +1,61 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click drawer button"
+    },
+    {
+      "type": "process",
+      "description": "click about software button"
+    },
+    {
+      "type": "assert",
+      "description": "check airmod company icon"
+    },
+    {
+      "type": "process",
+      "description": "click private policy"
+    },
+    {
+      "type": "process",
+      "description": "scroll down to cookie section"
+    },
+    {
+      "type": "assert",
+      "description": "check cookie section"
+    },
+    {
+      "type": "process",
+      "description": "scroll up to updated date"
+    },
+    {
+      "type": "assert",
+      "description": "check update date is november 7th, 2019"
+    },
+    {
+      "type": "assert",
+      "description": "check update date is november 7th, 2017"
+    }
+  ]
+}

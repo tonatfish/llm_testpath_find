@@ -1,0 +1,49 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click no button of permission dialog"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "input the word \"Abcd1234!\" to the password input section"
+    },
+    {
+      "type": "process",
+      "description": "click save button"
+    },
+    {
+      "type": "process",
+      "description": "click speaker icon"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's word shows silence"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's a canceled speaker icon"
+    },
+    {
+      "type": "process",
+      "description": "click speaker icon"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's word shows 同步音源"
+    },
+    {
+      "type": "assert",
+      "description": "check if there's an available speaker icon"
+    }
+  ]
+}

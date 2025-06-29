@@ -31,11 +31,11 @@
     },
     {
       "type": "process",
-      "description": "click settings button"
+      "description": "click 功能設定 button"
     },
     {
       "type": "process",
-      "description": "scroll down to language setting"
+      "description": "scroll down to 語言 button"
     },
     {
       "type": "process",

@@ -51,11 +51,11 @@
     },
     {
       "type": "process",
-      "description": "scroll down to how we process data section"
+      "description": "scroll down to how we save data section"
     },
     {
       "type": "assert",
-      "description": "check there's an how we process data section"
+      "description": "check there's an how we save data section"
     },
     {
       "type": "process",

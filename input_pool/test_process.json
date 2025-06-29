@@ -1,0 +1,33 @@
+{
+  "tag": "new",
+  "steps":[
+    {
+      "type": "process",
+      "description": "click green light button"
+    },
+    {
+      "type": "process",
+      "description": "long click red light button"
+    },
+    {
+      "type": "process",
+      "description": "wait 0.8 seconds"
+    },
+    {
+      "type": "process",
+      "description": "scroll down setting section until language setting"
+    },
+    {
+      "type": "process",
+      "description": "scroll up setting section until language setting"
+    },
+    {
+      "type": "process",
+      "description": "edit file limit to 5"
+    },
+    {
+      "type": "process",
+      "description": "input filename as duckfile"
+    }
+  ]
+}

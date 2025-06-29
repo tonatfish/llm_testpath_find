@@ -55,7 +55,7 @@
     },
     {
       "type": "process",
-      "description": "click terms of use button"
+      "description": "click yes button"
     },
     {
       "type": "assert",
